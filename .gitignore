@@ -1,0 +1,5 @@
+*.o
+.svn
+*.svn
+__pycache__
+*.log

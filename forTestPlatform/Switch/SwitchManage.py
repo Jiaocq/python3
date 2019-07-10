@@ -1,6 +1,9 @@
 """manage switch, open or close port, and mirror a port"""
 from html.parser import HTMLParser
 import requests
+import sys
+sys.path.append("..")
+from logManager import LogMgr
 
 
 class Config(object):
@@ -98,7 +101,7 @@ class Switch(object):
         :param mirror_direction: 0-3  represents ['禁用', 'Rx', 'Tx', 'Both', ]
         :return: true or flase
         """
-        ret = None
+        ret = False
         if mirroring_port > 8 or mirroring_port < 1:
             return ret
         if mirrored_port > 8 or mirrored_port < 1:
@@ -124,7 +127,7 @@ class Switch(object):
 
 def ulog(msg, *args, **kwargs):
     """redefine logout function name"""
-    print(msg, *args, **kwargs)
+    LogMgr.Log(LogMgr._levelDict[LogMgr.Config.testlogLevel], msg, *args, **kwargs)
     return
 
 

@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-
 """Reproduce the issue that ECC errors occur after many times of reboot."""
 import serial  
 import time
@@ -10,7 +9,9 @@ import requests
 import json
 import argparse
 import datetime as dt
-import LogMgr
+import sys
+sys.path.append("..")
+from logManager import LogMgr
 
 
 class Config(object):
